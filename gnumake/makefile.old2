@@ -1,0 +1,8 @@
+result:math.c libmath.so
+	gcc -o result math.c libmath.so 
+
+libmath.so:add.o sub.o
+	gcc -shared -o libmath.so add.o sub.o
+	
+%.o:%.c
+	gcc -fpic -c $<

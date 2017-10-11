@@ -1,0 +1,12 @@
+result:math.c libmath.so
+	gcc -o result math.c libmath.so 
+
+libmath.so:add.o sub.o
+	gcc -shared -o libmath.so add.o sub.o
+	
+add.o:add.c
+	gcc -fpic -c add.c
+
+sub.o:sub.c
+	gcc -fpic -c sub.c
+
